@@ -15,6 +15,10 @@ class CreateWelcomesTable extends Migration
     {
         Schema::create('welcomes', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('video_link')->nullable();
             $table->timestamps();
         });
     }

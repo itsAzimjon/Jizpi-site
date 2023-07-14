@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Welcome extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'image',
+        'title',
+        'description',
+        'video_link',
+    ];
 }

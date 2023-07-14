@@ -1,0 +1,277 @@
+*{
+    font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p,h1,h2,h3,h4,h5,h6{
+    color: #000;
+}
+
+.crsl{
+    height: 600px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    z-index: 3;
+    top: 400px;
+    position: absolute;
+    bottom: auto;
+    text-align: start;
+}
+
+.carousel-caption h2 {
+    color: #fff;
+    font-size: 36px;
+    
+}
+
+.carousel-caption p {
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 138.5%;
+    letter-spacing: 0.36px
+}
+
+
+.carousel-inner::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+}
+
+.create-carusel{
+    position: absolute;
+    z-index: 3;
+    top: 50px;
+    right: 100px;
+}
+
+  .text-w{
+    color: #fff !important;
+  }
+
+
+
+  /* NAVBAR  */
+
+  .u-nav{
+    background-color: #1566B7;
+    height: 84px;
+    border-radius: 9.14px;
+    justify-content: end;
+}
+
+.ul-nav{
+    align-items: center;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.ul-nav li{
+    color: #fff;
+    padding-right: 24px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.ul-nav li a{
+    color: #fff;
+}
+
+.u-nav{
+    background-color: #1566B7;
+    height: 84px;
+    border-radius: 9.14px;
+    justify-content: end;
+    z-index: 1;
+}
+
+.d-nav{
+    background-color: #fff;
+    margin-top: -24px;
+    box-shadow: 0px 7.30743px 13.7014px rgba(0, 0, 0, 0.1);;
+    height: 100px;
+    border-radius: 18px;
+    z-index: 2;
+}
+.dl-nav{
+    align-items: center;
+    list-style-type: none;
+    padding: 12px;
+}
+
+.dl-nav li{
+    color: #000;
+    padding-right: 44px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.6149px;
+    line-height: 20px;
+}
+
+.dl-nav li a{
+    color: #000;
+}
+
+.logo-nav{
+    height: 78px;
+}
+
+a{
+    text-decoration:none !important;
+}
+
+
+/* POSTS */
+
+.hNews{
+    margin-top: 80px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 49px;
+    margin-bottom: 55px;
+}
+
+.contNews{
+    margin-bottom: 40px;
+}
+
+.allNews{
+    margin-top: 42px;
+}
+
+.contNews img{
+    height: 225px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.sp{
+    margin-top: 24px;
+    color: #151515;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.032px;
+}
+
+.tp{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: #AFAFAF;
+} 
+
+.orders h3{
+    position: absolute;
+    top: 28px;
+    left: 230px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+    color: #fff;
+}
+.orders p{
+    position: absolute;
+    width: 700px;
+    top: 65px;
+    left: 230px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #FFF;
+}
+
+.post-create{
+    float: right;
+}
+
+ /* POST SHOW */
+
+ .show-img{
+    margin-bottom: 20px;
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: none;
+}
+
+
+/* AD>BLADE>PHP */
+
+.adsMain{
+    margin-top: 82px;
+    margin-right: -2px;
+    margin-left: -40px;
+    box-sizing: border-box;
+}
+
+.adsMain li div{
+    border-radius: 18px;
+    margin: -5px;
+    color: #fff;
+}
+
+.adImg{
+    position: absolute;
+    z-index: -1;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.adLi div p{
+    bottom: 25px;
+    left: 14px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.adLi div small{
+    bottom: 20px;
+    left: 14px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    color: #76BAFF;
+}
+
+.add-date{
+    margin-top: 40px;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--gradient, linear-gradient(123deg, #1566B7 0%, #07813E 40%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.add-title{
+    color: #000;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
