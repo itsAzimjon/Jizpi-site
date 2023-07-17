@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Welcome;
 use App\Models\Post;
+use App\Models\Ad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,8 +17,9 @@ class WelcomeController extends Controller
         $posts = Post::all();
         $welcomes = Welcome::all();
         $categories = Category::all();
+        $ads = Ad::all();
 
-        return view('welcome', compact('posts', 'welcomes', 'categories'));
+        return view('welcome', compact('posts', 'welcomes', 'categories', 'ads'));
     }
 
    

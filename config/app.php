@@ -80,21 +80,26 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'uz',
 
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
     |--------------------------------------------------------------------------
     |
-    | The fallback locale determines the locale to use when the current one
+    | The fallback locale determines the locale to use whuz the curruzt one
     | is not available. You may change the value to correspond to any of
     | the language folders that are provided through your application.
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'uz',
 
+    'all_locales' => [
+        'uz',
+        'en',
+        'ru'
+    ],
     /*
     |--------------------------------------------------------------------------
     | Faker Locale

@@ -25,7 +25,7 @@
             </div> --}}
         </div>
         <div class="col right col-lg-4 col-xl-4 col-xxl-4">
-            <h5 class="news-content">Boshqa Yangliklar</h5>
+            <h5 class="news-content">{{__('Boshqa Yangliklar')}}</h5>
             @foreach ($posts->sortByDesc('created_at')->take(5) as $add)
                 @if ($add->id != $post->id)
                     <a href="{{ route('posts.show', ['post' => $add->id])}}">

@@ -1,31 +1,23 @@
 <div class="container">
-    <ul class="row adsMain justify-content-between">
-        <li class="col-5 p-0 fad">
-            <div>
-                <h2>E'lonlar</h2>
-                <p>Bizning yaqinlashib kelayotgan tadbirlarimizdan xabardor bo‘lishni unutmang!</p>
-            </div>
+    <ul class="row adsMain p-0">
+        <li class="col-5 p-4 fad bg-light adHead">
+            <h2>{{__("E'lonlar")}}</h2>
+            <p>Bizning yaqinlashib kelayotgan tadbirlarimizdan xabardor bo‘lishni unutmang!</p>
         </li>
-        <li class="col-2 adLi p-0">
-            <img class="adImg" src="/assets/images/camera-man.png" width="100%">
-            <div>
-                <p>Video roliklar tanlovida ishtirok eting!</p>
-                <small>Dekabr 03, 2022</small>
-            </div>
-        </li>
-        <li class="col-2 adLi p-0">
-            <img class="adImg" src="{{ asset('/assets/images/nurse.png') }} width="100%">
-            <div>
-                <p>Qon topshirib, siz kimningdir hayotini...</p>
-                <small>Noyabr 29, 2022</small>
-            </div>
-        </li>
-        <li class="col-2 adLi p-0">
-            <img class="adImg" src="/assets/images/bman.png" width="100%">
-            <div>
-                <p>Tadbirkorlar va sarmoyadorlar diqqatiga!</p>
-                <small>Oktabr 14, 2022</small>
-            </div>
-        </li>
+        <div class="col-7 d-flex">
+            @foreach ($ads as $ad)
+            <li class="col-4 p-2 adLi">
+                <a href="{{ route('ads.show', ['ad' => $ad->id])}}">
+                    <div class="card">
+                        <img class="card-img" src="{{ asset('storage/'. $ad->image) }}" alt="a snow-capped mountain range"/>
+                        <div class="card-img-overlay text-white">
+                          <small class="adDate card-text text-light">{{ \Carbon\Carbon::parse($ad->created_at)->format('F j, Y')}}</small>
+                          <p class="adText card-text text-light">{{ $ad->title}}</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            @endforeach
+        </span>
     </ul>
 </div>

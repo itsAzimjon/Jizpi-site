@@ -21,8 +21,6 @@
                 @endforeach
 			</ul>
 		</div>
-	</div>
-    <div class="container-fluid py-4">
         <div class="tab-content">
             <div id="menu1" class="tab-pane fade show active">
                 <div class="row allNews">
@@ -55,8 +53,10 @@
                         @endforeach
                     </div>
                 </div>
-            @endforeach
-            
+            @endforeach       
         </div>
+        <a href="#" class="newsLink">
+            <p>O‘qishda davom eting 🡢</p>
+        </a>
     </div>
     
