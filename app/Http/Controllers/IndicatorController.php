@@ -14,7 +14,7 @@ class IndicatorController extends Controller
      */
     public function index()
     {
-        //
+     
     }
 
     /**

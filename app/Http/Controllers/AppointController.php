@@ -4,82 +4,50 @@ namespace App\Http\Controllers;
 
 use App\Models\Appoint;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AppointController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
-    }
+        Appoint::take();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('components.create-appoint');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Appoint  $appoint
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Appoint $appoint)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Appoint  $appoint
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Appoint $appoint)
     {
-        //
+        return view('components.appoint-edit')->with(['appoint' => $appoint]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Appoint  $appoint
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Appoint $appoint)
     {
-        //
-    }
+        if($request->hasFile('image')){
+            
+            if(isset($appoint->image)){
+                Storage::delete($appoint->image);
+            }
+            $path = $request->file('image')->store('appoint-image');
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Appoint  $appoint
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Appoint $appoint)
-    {
-        //
+        $appoint->update([
+            'title' => $request->title,
+            'text' => $request->text,
+            'image' => $path ?? $appoint->image
+        ]);
+
+        $enTranslations = file_get_contents(resource_path('lang/en.json'));
+        $enTranslationsArray = json_decode($enTranslations, true);
+        $enTranslationsArray[$request->title] = $request->title_en;
+        $enTranslationsArray[$request->text] = $request->text_en;
+        file_put_contents(resource_path('lang/en.json'), json_encode($enTranslationsArray));
+        
+        $ruTranslations = file_get_contents(resource_path('lang/ru.json'));
+        $ruTranslationsArray = json_decode($ruTranslations, true);
+        $ruTranslationsArray[$request->title] = $request->title_ru;
+        $ruTranslationsArray[$request->text] = $request->text_ru;
+        file_put_contents(resource_path('lang/ru.json'), json_encode($ruTranslationsArray));
+
+        return redirect()->route('home');
     }
 }

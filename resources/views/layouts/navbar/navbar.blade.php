@@ -1,20 +1,11 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="{{ route('home')}}">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ route('home')}}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('login')}}">Kirish</a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown link
@@ -25,7 +16,19 @@
                 @endforeach
             </ul>
           </li>
-        </ul>
+          @auth
+            <li class="nav-item">
+              <form action="{{ route('logout')}}" method="POST">
+                @csrf
+                <button type="submit" class="nav-link btn btn-danger text-light">Chiqish</a>
+              </form>
+            </li>
+            @else
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-primary" href="{{ route('login')}}">Kirish</a>
+            </li>
+            @endauth
+          </ul>
       </div>
     </div>
   </nav>

@@ -19,4 +19,77 @@ class AdController extends Controller
         $ads = Ad::all();
         return view('ads.show', compact('ad', 'ads'));
     }
+
+    public function create(){
+        return view('ads.create');
+    }
+
+    public function store(Request $request){
+        
+        $path = $request->file('image')->store('ad-image');
+
+        Ad::create([
+            'image' => $path,
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
+        $enTranslations = file_get_contents(resource_path('lang/en.json'));
+        $enTranslateArray = json_decode($enTranslations, true);
+        $enTranslateArray[$request->title] = $request->title_en;
+        $enTranslateArray[$request->description] = $request->description_en;
+        file_put_contents(resource_path('lang/en.json'), json_encode($enTranslateArray));
+        
+        $ruTranslations = file_get_contents(resource_path('lang/ru.json'));
+        $ruTranslationsArray = json_decode($ruTranslations, true);
+        $ruTranslationsArray[$request->title] = $request->title_ru;
+        $ruTranslationsArray[$request->description] = $request->description_ru;
+        file_put_contents(resource_path('lang/ru.json'), json_encode($ruTranslationsArray));
+
+        return redirect()->route('home');
+    }
+
+    public function edit(Ad $ad){
+        return view('ads.edit', compact('ad'));
+    }
+
+    public function update(Request $request, Ad $ad)
+    {
+        if($request->hasFile('image')){
+            
+            if(isset($ad->image)){
+                Storage::delete($ad->image);
+            }
+            $path = $request->file('image')->store('ad-image');
+        }
+
+        $ad->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $path ?? $ad->image,
+        ]);
+
+        $enTranslations = file_get_contents(resource_path('lang/en.json'));
+        $enTranslateArray = json_decode($enTranslations, true);
+        $enTranslateArray[$request->title] = $request->title_en;
+        $enTranslateArray[$request->description] = $request->description_en;
+        file_put_contents(resource_path('lang/en.json'), json_encode($enTranslateArray));
+        
+        $ruTranslations = file_get_contents(resource_path('lang/ru.json'));
+        $ruTranslationsArray = json_decode($ruTranslations, true);
+        $ruTranslationsArray[$request->title] = $request->title_ru;
+        $ruTranslationsArray[$request->description] = $request->description_ru;
+        file_put_contents(resource_path('lang/ru.json'), json_encode($ruTranslationsArray));
+
+        return redirect()->route('ads.show', ['ad' => $ad->id]);
+    }
+
+    public function destroy(Ad $ad){
+
+        Storage::delete($ad->image);
+
+        $ad->delete();
+
+        return redirect()->route('home');
+    }
 }

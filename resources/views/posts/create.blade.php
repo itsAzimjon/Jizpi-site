@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label for="welcome-image" class="form-control-label">Surat</label>
                             <div class="@error('image')border border-danger rounded-3 @enderror">
-                                <input class="form-control"  type="file" id="welcome-image" name="image">
+                                <input required class="form-control"  type="file" id="welcome-image" name="image">
                                     @error('image')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -37,18 +37,7 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="welcome-title" class="form-control-label">Sarlavha</label>
-                            <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
-                                <input class="form-control" type="text" id="welcome-title" name="title">
-                                    @error('title')
-                                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                                    @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <label for="welcome-title" class="form-control-label">Sarlavha</label>
+                            <label for="welcome-title" class="form-control-label">Kategoriya</label>
                             <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
                                 <select name="category_id" aria-label="Default select example" class="form-select">
                                     @foreach($categories as $option)
@@ -58,12 +47,64 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="image-Passport" class="form-control-label">Tavsif</label>
-                            <div class="@error('Passport')border border-danger rounded-3 @enderror">
-                                <textarea class="form-control"  type="text" id="image-Passport" name="description">
+                            <label for="welcome-title" class="form-control-label">Sarlavha uz</label>
+                            <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
+                                <input required class="form-control" type="text" id="welcome-title" name="title">
+                                    @error('title')
+                                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                    @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title" class="form-control-label">Tavsif uz</label>
+                            <div class="@error('title')border border-danger rounded-3 @enderror">
+                                <textarea class="form-control"  type="text" name="description">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="welcome-title" class="form-control-label">Sarlavha en</label>
+                            <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
+                                <input required class="form-control" type="text" id="welcome-title" name="title_en">
+                                    @error('title')
+                                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                    @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title" class="form-control-label">Tavsif en</label>
+                            <div class="@error('title')border border-danger rounded-3 @enderror">
+                                <textarea class="form-control"  type="text" name="description_en">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="welcome-title" class="form-control-label">Sarlavha ru</label>
+                            <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
+                                <input required class="form-control" type="text" id="welcome-title" name="title_ru">
+                                    @error('title')
+                                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                    @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title" class="form-control-label">Tavsif ru</label>
+                            <div class="@error('title')border border-danger rounded-3 @enderror">
+                                <textarea class="form-control"  type="text" name="description_ru">
                                 </textarea>
                             </div>
                         </div>

@@ -38,6 +38,18 @@ class PostController extends Controller
             'image' => $path,
         ]);
 
+        $enTranslations = file_get_contents(resource_path('lang/en.json'));
+        $enTranslationsArray = json_decode($enTranslations, true);
+        $enTranslationsArray[$request->title] = $request->title_en;
+        $enTranslationsArray[$request->description] = $request->description_en;
+        file_put_contents(resource_path('lang/en.json'), json_encode($enTranslationsArray));
+        
+        $ruTranslations = file_get_contents(resource_path('lang/ru.json'));
+        $ruTranslationsArray = json_decode($ruTranslations, true);
+        $ruTranslationsArray[$request->title] = $request->title_ru;
+        $ruTranslationsArray[$request->description] = $request->description_ru;
+        file_put_contents(resource_path('lang/ru.json'), json_encode($ruTranslationsArray));
+        
         return redirect()->route('home');
     }
 
@@ -68,6 +80,18 @@ class PostController extends Controller
             'description' => $request->description,
             'image' => $path ?? $post->image,
         ]);
+
+        $enTranslations = file_get_contents(resource_path('lang/en.json'));
+        $enTranslationsArray = json_decode($enTranslations, true);
+        $enTranslationsArray[$request->title] = $request->title_en;
+        $enTranslationsArray[$request->description] = $request->description_en;
+        file_put_contents(resource_path('lang/en.json'), json_encode($enTranslationsArray));
+        
+        $ruTranslations = file_get_contents(resource_path('lang/ru.json'));
+        $ruTranslationsArray = json_decode($ruTranslations, true);
+        $ruTranslationsArray[$request->title] = $request->title_ru;
+        $ruTranslationsArray[$request->description] = $request->description_ru;
+        file_put_contents(resource_path('lang/ru.json'), json_encode($ruTranslationsArray));
 
         return redirect()->route('posts.show', ['post' => $post->id]);
     }

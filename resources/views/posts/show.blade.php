@@ -8,8 +8,8 @@
         </h6>
         <div class="col left col-12 col-sm-12 col-md-12 p-3 col-lg-8 col-xl-8 col-xxl-8 border-light-subtle border-end">
             <img src="{{ asset('Storage/'.$post->image) }}" class="img-thumbnail news-main-img show-img" alt="">
-            <h4 class="my-4">{{ $post->title }}</h4>
-            <p>{!!nl2br ($post->description) !!}</p>
+            <h4 class="my-4">{{ __($post->title) }}</h4>
+            <p>{!!nl2br (__($post->description)) !!}</p>
             {{-- <div class="row">
                 <div class="col mb-4 mt-3">
                     <img src="images/mss.jpg" class="img-thumbnail">
@@ -33,13 +33,14 @@
                             <span>{{ \Carbon\Carbon::parse($post->created_at)->format('F j, Y')}}</span>
                         </p>
                         <p class="news-right-content add-title">
-                            {{ $add->title }}
-                        </p>
+                            {{__($add->title) }}
+                        </p>    
                     </a>
                 @endif
             @endforeach
         </div>
     </div>
+    @auth
     <div class="row">
         <form class="col-1 mx-2 d-flex justify-contend-between" action="{{ route('posts.destroy', $post->id) }}" method="POST">
             @csrf
@@ -56,5 +57,6 @@
             </svg>
         </a>
     </div>
+    @endauth
 </div>
 @endsection

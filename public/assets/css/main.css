@@ -53,7 +53,7 @@ p,h1,h2,h3,h4,h5,h6{
 .create-carusel{
     position: absolute;
     z-index: 3;
-    top: 50px;
+    top: 100px;
     right: 100px;
 }
 
@@ -156,6 +156,7 @@ a{
 
 .newsLink p{
     border-bottom: 1px solid #b8b8b8;
+    text-align: center;
     font-size: 15px;
     width: 180px;
     padding-bottom: 10px;
@@ -168,7 +169,7 @@ a{
 }
 
 .contNews img{
-    height: 225px;
+    height: 200px;
     object-fit: cover;
     border-radius: 18px;
 }
@@ -176,7 +177,7 @@ a{
 .sp{
     margin-top: 24px;
     color: #151515;
-    font-size: 14px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
@@ -190,6 +191,31 @@ a{
     line-height: 24px;
     color: #AFAFAF;
 } 
+
+.fp{
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 27px;
+
+    background: linear-gradient(90deg, #1566B7 3.52%, #07813E 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lp{
+    margin-top: -38px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height */
+    float: right;
+    color: #07813E;
+}
 
 .orders h3{
     position: absolute;
@@ -292,6 +318,8 @@ ul {
     border-radius: 16px;
 }
 
+
+
 .adHead h2{
     font-size: 24px;
     font-style: normal;
@@ -332,4 +360,82 @@ ul {
     bottom: 70px;
     left: 20px;
 }
-/* ad carusel slider */
+
+/* Appoint */
+.appo{
+    border-radius: 18px;
+    height: 160px;
+    overflow: hidden;
+}
+
+.appo-png{
+    margin-top: 14px;
+    width: 150px;
+}
+
+.appo-h{
+    margin-top: 8px;
+    color: #fff;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.52px;
+}
+
+.appo-p{
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.36px;    
+}
+
+.appo-img{
+    width: 180px;
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+
+}
+
+.appo-edit{
+    position: relative;
+    margin-top: -50px;
+}
+
+
+/* Indicators */
+
+.ind-cont{
+    border-radius: 10px;
+    margin-top: 100px;
+}
+
+.ind{
+    background: #1B6EC0;
+    border-radius: 16px;
+    margin: 10px 0px;
+}
+
+.ind-img{
+    width: 60px;
+    height: 60px;
+}
+
+.ind-tit{
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 0.9;
+}
+
+.ind-num{
+    color: #FFF;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

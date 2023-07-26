@@ -18,10 +18,9 @@
                 </div>
                 
                 <!-- Submit button -->
-                <button type="button" class="btn btn-primary btn-block mb-4 col-12">{{__('Kirish')}}</button>
+                <button type="submit" class="btn btn-primary btn-block mb-4 col-12">{{__('Kirish')}}</button>
             </form>
         </div>
     </div>
 </div>
-
 @endsection

@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col my-5">
-            <form action="{{ route('posts.update', ['post' => $post->id])}}" method="POST" enctype="multipart/form-data">  
+            <form action="{{ route('ads.update', ['ad' => $ad->id])}}" method="POST" enctype="multipart/form-data">  
                 @method('PUT')  
                 @csrf
                 @if($errors->any())
@@ -35,11 +35,12 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-12">
                         <div class="form-group">
                             <label for="welcome-title" class="form-control-label">Sarlavha</label>
                             <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
-                                <input class="form-control" type="text" name="title" value="{{ $post->title}}">
+                                <input class="form-control" type="text" name="title" value="{{ $ad->title}}">
                                     @error('title')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -48,32 +49,58 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="welcome-title" class="form-control-label">Kategoriya</label>
-                            <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
-                                <select name="category_id" aria-label="Default select example" class="form-select">
-                                    @foreach($categories as $option)
-                                    <option value="{{ $option->id }}" {{ $option->id == $post->category_id ? 'selected' : '' }}>
-                                        {{ $option->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-12">
-                        <div class="form-group">
                             <label for="image-Passport" class="form-control-label">Tavsif</label>
                             <div class="@error('Passport')border border-danger rounded-3 @enderror">
-                                <textarea class="form-control"  type="text" name="description">{{ $post->description}}
+                                <textarea class="form-control"  type="text" name="description">{{ $ad->description}}
                                 </textarea>
                             </div>
                         </div>
                     </div>
                 </div>
-            
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="welcome-title" class="form-control-label">Sarlavha en</label>
+                        <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
+                            <input required class="form-control" type="text" id="welcome-title" name="title_en" value="{{ __($ad->title, [], 'en')}}">
+                                @error('title')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="title" class="form-control-label">Tavsif en</label>
+                        <div class="@error('title')border border-danger rounded-3 @enderror">
+                            <textarea class="form-control"  type="text" name="description_en">{{ __($ad->description, [], 'en')}}
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="welcome-title" class="form-control-label">Sarlavha ru</label>
+                        <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
+                            <input required class="form-control" type="text" id="welcome-title" name="title_ru" value="{{ __($ad->title, [], 'ru')}}">
+                                @error('title')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="title" class="form-control-label">Tavsif ru</label>
+                        <div class="@error('title')border border-danger rounded-3 @enderror">
+                            <textarea class="form-control"  type="text" name="description_ru">{{ __($ad->description, [], 'ru')}}
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <div class="d-flex justify-content-end">
-                    <button type="button" class="btn bg-gradient-secondary  btn-md mt-4 mb-4 mx-3" data-bs-dismiss="modal">Yopish</button>
-                    <button type="submit" class="btn bg-primary text-light text-w btn-md mt-4 mb-4">Saqlash</button>
+                    <button type="submit" class="btn bg-primary text-light text-w btn-md mt-3 mb-5">Saqlash</button>
                 </div>
             </form>
         </div>

@@ -53,6 +53,47 @@
     </div>
     <div class="col-12">
         <div class="form-group">
+            <label for="welcome-title" class="form-control-label">Sarlavha en</label>
+            <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
+                <input required class="form-control" type="text" id="welcome-title" name="title_en">
+                    @error('title')
+                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                    @enderror
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="title" class="form-control-label">Tavsif en</label>
+            <div class="@error('title')border border-danger rounded-3 @enderror">
+                <textarea class="form-control"  type="text" name="description_en">
+                </textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-group">
+            <label for="welcome-title" class="form-control-label">Sarlavha ru</label>
+            <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
+                <input required class="form-control" type="text" id="welcome-title" name="title_ru">
+                    @error('title')
+                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                    @enderror
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="title" class="form-control-label">Tavsif ru</label>
+            <div class="@error('title')border border-danger rounded-3 @enderror">
+                <textarea class="form-control"  type="text" name="description_ru">
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
             <label for="welcome-link" class="form-control-label">Video link</label>
             <div class="@error('link')border border-danger rounded-3 @enderror">
                 <input class="form-control"  type="text" id="welcome-link" name="video_link">
