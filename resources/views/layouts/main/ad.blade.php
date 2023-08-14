@@ -12,20 +12,25 @@
             <h2>{{ __("E’lonlar")}}</h2>
             <p>{{ __('Bizning yaqinlashib kelayotgan tadbirlarimizdan xabardor bo‘lishni unutmang!') }}</p>
         </li>
-        <div class="col-7 d-flex">
-            @foreach ($ads as $ad)
-            <li class="col-4 p-2 adLi">
-                <a href="{{ route('ads.show', ['ad' => $ad->id])}}">
-                    <div class="card">
-                        <img class="card-img" src="{{ asset('storage/'. $ad->image) }}" alt="a snow-capped mountain range"/>
-                        <div class="card-img-overlay text-white">
-                          <small class="adDate card-text text-light">{{ \Carbon\Carbon::parse($ad->created_at)->format('F j, Y')}}</small>
-                          <p class="adText card-text text-light">{{ __($ad->title) }}</p>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            @endforeach
-        </span>
+        <div class="ad-scroll col-7">
+            <div class="swiper-container"id="scroll-tags">
+                <div class=" d-flex adSlide swiper-wrapper">
+                    @foreach ($ads as $ad)
+                    <li class="col-4 p-2 adLi swiper-slide">
+                        <a href="{{ route('ads.show', ['ad' => $ad->id])}}">
+                            <div class="card">
+                                <img class="card-img" src="{{ asset('storage/'. $ad->image) }}" alt="a snow-capped mountain range"/>
+                                <div class="card-img-overlay text-white">
+                                  <small class="adDate card-text text-light">{{ \Carbon\Carbon::parse($ad->created_at)->format('F j, Y')}}</small>
+                                  <p class="adText card-text text-light">{{ __($ad->title) }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    @endforeach
+                </div>
+            </div>
+            
+        </div>
     </ul>
 </div>

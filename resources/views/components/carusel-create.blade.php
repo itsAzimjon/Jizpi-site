@@ -33,7 +33,7 @@
         <div class="form-group">
             <label for="welcome-title" class="form-control-label">Sarlavha</label>
             <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
-                <input class="form-control" type="text" id="welcome-title" name="title">
+                <input class="form-control" type="text" id="welcome-title" value="{{ old('title') }}" name="title">
                     @error('title')
                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                     @enderror
@@ -44,7 +44,7 @@
         <div class="form-group">
             <label for="image-Passport" class="form-control-label">Tavsif</label>
             <div class="@error('Passport')border border-danger rounded-3 @enderror">
-                <input class="form-control"  type="text" id="image-Passport" name="description">
+                <input class="form-control"  type="text" id="image-Passport" value="{{ old('description') }}"  name="description">
                     @error('Passport')
                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                     @enderror
@@ -55,7 +55,7 @@
         <div class="form-group">
             <label for="welcome-title" class="form-control-label">Sarlavha en</label>
             <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
-                <input required class="form-control" type="text" id="welcome-title" name="title_en">
+                <input required class="form-control" type="text" id="welcome-title" value="{{ old('title_en') }}" name="title_en">
                     @error('title')
                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                     @enderror
@@ -66,7 +66,7 @@
         <div class="form-group">
             <label for="title" class="form-control-label">Tavsif en</label>
             <div class="@error('title')border border-danger rounded-3 @enderror">
-                <textarea class="form-control"  type="text" name="description_en">
+                <textarea class="form-control"  type="text" value="{{ old('description_en') }}" name="description_en">
                 </textarea>
             </div>
         </div>
@@ -76,7 +76,7 @@
         <div class="form-group">
             <label for="welcome-title" class="form-control-label">Sarlavha ru</label>
             <div class="@error('welcome.title')border border-danger rounded-3 @enderror">
-                <input required class="form-control" type="text" id="welcome-title" name="title_ru">
+                <input required class="form-control" type="text" id="welcome-title" value="{{ old('title_ru') }}" name="title_ru">
                     @error('title')
                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                     @enderror
@@ -87,7 +87,7 @@
         <div class="form-group">
             <label for="title" class="form-control-label">Tavsif ru</label>
             <div class="@error('title')border border-danger rounded-3 @enderror">
-                <textarea class="form-control"  type="text" name="description_ru">
+                <textarea class="form-control"  type="text" value="{{ old('description_ru') }}" name="description_ru">
                 </textarea>
             </div>
         </div>
@@ -96,7 +96,7 @@
         <div class="form-group">
             <label for="welcome-link" class="form-control-label">Video link</label>
             <div class="@error('link')border border-danger rounded-3 @enderror">
-                <input class="form-control"  type="text" id="welcome-link" name="video_link">
+                <input class="form-control"  type="text" id="welcome-link"  value="{{ old('video_link') }}" name="video_link">
                     @error('link')
                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                     @enderror

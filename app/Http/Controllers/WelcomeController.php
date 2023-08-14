@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Ad;
 use App\Models\Appoint;
 use App\Models\Event;
+use App\Models\Firstnav;
 use App\Models\Indicator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -24,13 +25,25 @@ class WelcomeController extends Controller
         $appoint = Appoint::all();
         $events = Event::paginate(3);
         $indicators = Indicator::all();
+        $firstnavs = Firstnav::all();
 
-        return view('welcome', compact('posts', 'welcomes', 'categories', 'ads', 'appoint', 'events', 'indicators'));
+        return view('welcome', compact('posts', 'welcomes', 'categories', 'ads', 'appoint', 'events', 'indicators', 'firstnavs'));
     }
 
-   
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
+
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:348'
+        ]);
+
         $path = $request->file('image')->store('welcome-image');
         
         Welcome::create([

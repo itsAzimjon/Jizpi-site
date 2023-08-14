@@ -14,6 +14,11 @@ class Post extends Model
         'image',
         'title',
         'description',
+        'mult_image',
+    ];
+
+    protected $casts = [
+        'mult_image' => 'array', 
     ];
 
     public function category(){

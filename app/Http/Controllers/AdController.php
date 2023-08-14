@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Storage;
 
 class AdController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     public function index()
     {
         $ads = Ad::all();
@@ -26,6 +32,12 @@ class AdController extends Controller
 
     public function store(Request $request){
         
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:348'
+        ]);
+
         $path = $request->file('image')->store('ad-image');
 
         Ad::create([
@@ -55,6 +67,13 @@ class AdController extends Controller
 
     public function update(Request $request, Ad $ad)
     {
+                   
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:348'
+        ]);
+        
         if($request->hasFile('image')){
             
             if(isset($ad->image)){

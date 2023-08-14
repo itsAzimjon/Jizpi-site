@@ -9,14 +9,66 @@ p,h1,h2,h3,h4,h5,h6{
     color: #000;
 }
 
+/* NAVBAR */
+
+.nav-img{
+    width: 190px;
+
+}
+
+.nav-text{
+    color: #151515;
+    font-size: 15px !important;
+    font-style: normal;
+    font-weight: 500 !important; 
+    line-height: normal;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+.recip{
+    margin-left: 24px;
+    background-color: #1566B7;
+    border-radius: 10px;
+    padding: 10px 16px !important;
+}
+
+.dropdown-item{
+    color: #151515;
+    font-size: 15px;
+}
+
+.nav-main {
+    margin: auto;
+}
+
+.lang-flag{
+    width: 20px;
+}
+
+.nav-icons{
+    margin-right: 70px;
+}
+.nav-icons li{
+    margin: 12px 16px 0 0;
+    width: 20px;
+}
+
+.nav-1{
+    height: 50px;
+}
+/* navbar-end */
+
 .crsl{
-    height: 600px;
+    /* *** */
+    height: 800px;
     object-fit: cover;
 }
 
 .carousel-caption {
     z-index: 3;
-    top: 400px;
+    /* *** */
+    top: 550px;
     position: absolute;
     bottom: auto;
     text-align: start;
@@ -29,8 +81,11 @@ p,h1,h2,h3,h4,h5,h6{
 }
 
 .carousel-caption p {
+    /* *** */
     color: #fff;
-    font-size: 16px;
+    width: 70%;
+    font-size: 18px;
+    margin: 10px 0 30px 0;
     font-style: normal;
     font-weight: 300;
     line-height: 138.5%;
@@ -53,19 +108,106 @@ p,h1,h2,h3,h4,h5,h6{
 .create-carusel{
     position: absolute;
     z-index: 3;
-    top: 100px;
-    right: 100px;
+    top: 190px;
+    right: 150px;
 }
 
   .text-w{
     color: #fff !important;
   }
 
+/* Welcome flash button */
 
 
-  /* NAVBAR  */
+.dropdown-flash {
+    position: absolute;
+    top: -165px;
+    right: 70px;
+    border-radius: 10px !important;
+    max-width: 13em;
+    margin: 80px auto 0;
+    z-index: 9;
+    box-shadow: 0px 7.307430744171143px 13.701432228088379px 0px rgba(0, 0, 0, 0.10);
 
-  .u-nav{
+  }
+  
+  .dropdown-btn {
+    border-radius: 10px !important;
+    background: #ffffff;
+    font-size: 18px;
+    border: none;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7em 0.5em;
+    cursor: pointer;
+  }
+  
+  .arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: transform ease-in-out 0.3s;
+  }
+  
+  .dropdown-content {
+    width: 320px !important;
+    top: 96px !important;
+    right: -70px;
+    list-style: none;
+    position: absolute;
+    top: 3.2em;
+    width: 100%;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  
+  .dropdown-content li {
+    background: #ffffff;
+    border-radius: 0.5em;
+    position: relative;
+    margin-right: 15px;
+    left: 100%;
+    margin-bottom: 8px;
+    transition: 0.5s;
+    transition-delay: calc(60ms * var(--delay));
+  }
+
+  .dropdown-content li a:hover {
+    background: #cacaca7a;
+    border-radius: 7px;
+
+  }
+  
+  .dropdown-content.menu-open li {
+    left: 0;
+  }
+  
+  .dropdown-content.menu-open {
+    visibility: visible;
+  }
+  
+  .arrow.arrow-rotate {
+    transform: rotate(360deg);
+  }
+  
+  .dropdown-content li:hover {
+    background: #ffffff;
+  }
+  
+  .dropdown-content li a {
+    display: block;
+    padding: 0.7em 0.5em;
+    color: #000000;
+    margin: 0.1em 0;
+    text-decoration: none;
+  }
+
+
+/* NAVBAR  */
+
+.u-nav{
     background-color: #1566B7;
     height: 84px;
     border-radius: 9.14px;
@@ -132,6 +274,60 @@ p,h1,h2,h3,h4,h5,h6{
 
 a{
     text-decoration:none !important;
+}
+
+
+/* Firstnav */
+
+.nav-card{
+    margin-bottom: 40px;
+    background-color: #cacaca7a;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.nav-card a img{
+    width: 80%;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.nav-card a h4{
+    margin-top: 10px;
+}
+
+
+
+
+/* pdf viwer */
+
+#pdfViewerContainer {
+    text-align: center;
+}
+
+
+
+#prevButton,
+#nextButton {
+    font-size: 16px;
+    padding: 8px 16px;
+    background-color: #1566B7;
+    border-radius: 8px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#prevButton:hover,
+#nextButton:hover {
+    background-color: #1B6EC0;
+}
+
+#pageInfo {
+    font-size: 14px;
+    margin: 0 10px;
 }
 
 
@@ -239,6 +435,14 @@ a{
     color: #FFF;
 }
 
+.mult-image{
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    border: none;
+    border-radius: 14px;
+}
+
 .post-create{
     float: right;
 }
@@ -256,6 +460,7 @@ a{
 
 .add-date{
     margin-top: 40px;
+    margin-bottom: 4px;
     font-size: 11px;
     font-weight: 600;
     background: var(--gradient, linear-gradient(123deg, #1566B7 0%, #07813E 40%));
@@ -287,6 +492,10 @@ a{
 
 
 ul {
+    list-style-type: none;
+}
+
+li {
     list-style-type: none;
 }
 
@@ -360,6 +569,27 @@ ul {
     bottom: 70px;
     left: 20px;
 }
+
+.swiper-container{
+    width: 31%;
+}
+.ad-scroll{
+    overflow: hidden;
+    border-radius: 18px;
+}
+  .swiper-wrapper {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .text-black{
+    color: #000 !important;
+  }
+
+
+  
+   
 
 /* Appoint */
 .appo{
@@ -438,4 +668,167 @@ ul {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+
+
+/* Facultates */
+
+
+.facTitle{
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.52px;
+}
+
+.facLi{
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+.facul {
+    position: relative;
+}
+ 
+.facMain li div{
+    border-radius: 16px ;
+    margin: -5px;
+}
+
+.facul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 0px 16px 16px;
+    background: linear-gradient(180deg, rgba(75, 77, 78, 0) 65%, #1B6EC0 100%);}
+
+.facul-img{
+    height: 348px;    
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.facMain{
+    margin-top: 60px;
+}
+
+.facText{
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    overflow: hidden;
+}
+
+/* Usefull-links */
+
+.link-li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px; /* Make sure the li takes the full height of the parent */
+}
+
+.links {
+    position: relative;
+    text-align: center;
+}
+
+.link-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.link-text{
+    position: absolute;
+    width: 250px;
+    font-size: 16px;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Optional: Add some spacing around the image and text */
+.link-img,
+.link-text {
+    margin: 10px;
+}
+.link-img{
+    width: 140px !important;
+}
+
+
+
+
+/* Footer */
+
+.foot{
+    margin-top: 130px;
+    background: #1566B7;
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+
+.h4{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    width: 200px;
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    border-bottom: 2px solid #2FCE77;
+}
+
+.h5{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    padding-bottom: 10px;
+    width: 340px;
+    color: #FFFFFF;
+    border-bottom: 2px solid #2FCE77;
+}
+
+.a{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    margin: 10px 0;
+    text-decoration: none !important;
+    color: #FFFFFF;
+}
+
+.a:hover{
+
+    color: #FFFFFF;
+}
+
+.social a svg{
+    margin-right: 40px;
+}
+
+.barada{
+    /* height: 80px; */
+    background: #1B6EC0;
+}
+
+.nav-link.active,
+.nav-link.active:hover,
+.nav-link.active:focus {
+    background-color: #1566B7;
+    color: #fff;
+    outline: #1566B7;
+    /* Add any additional styling you want for the active tab */
 }

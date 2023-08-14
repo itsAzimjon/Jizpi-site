@@ -32,6 +32,30 @@
 			</div>
 		@endforeach
 	</div>
+	<div class="dropdown-flash">
+		<button class="dropdown-btn" aria-label="menu button" aria-haspopup="menu" aria-expanded="false" aria-controls="dropdown-menu">
+			<span class="arrow">
+				<svg width="26" height="24" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<rect width="28" height="25.8462" fill="url(#pattern0)"/>
+					<defs>
+					<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+					<use xlink:href="#image0_569_189" transform="matrix(0.0102564 0 0 0.0111111 0.0384615 0)"/>
+					</pattern>
+					<image id="image0_569_189" width="90" height="90" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAADG0lEQVR4nO2cOYgUQRSGf68RwVGjVVGMFBVE8EAUMXMVYVPRFTTRyANFDBV2BWVRA28w3cDRwMBQXTxCRVwxMVHxYFY8FvEAb0eKbXF2Z7anq6veVE3V/8ELe16/b4ph+lW9BgghhBBCYmICgBMA3gCoWIoygB4ABdfF+cQxi4JHhpJNAIwDMCgoWq1sAmCJoGQVr2h5iF3ConuTPNFTEha9PnrDCS8FJat/MeP/JYqZWcKr+ZTrAn1hs7DoFa4L9IUzgpKfABjjukBf6BcU3eW6OF+YDOCnoOj5rgv0hXZByfdcF+cTXYKi97ouziduCEn+BWCG6+J8aiR9EhJ9zXVxsTSStrkuzid2C0n+CmCq6+JiaCSVXBcWSyOpw3VhPjFHSLLapeH+YBWdQqLPVychwFkh0aspV76R9JyduuEUkyc326KPjMgTPe1CPxuLojfbhEZSPyXX0icg+gBFyzeSfgOYTdHDWSqwmm9Sci17BERvp+haLlmW/A3ANIqWbyRdoeTmNZIqhhHcYfVOD6RGcVj9nAcy0+I1AuGBBzLTYgABUBRqJNmMowiAdR6ITIvPANoQAN0eyEyLQwiEPg9kpk0EqJ+2IBj0QOhosRMBUfZAaL14GtKDCpKHgYqHsQmBUUhk+7Sy73MztzkzL2sb5Ime6xYk81hvBl4YSv4DYFmWRDEzKdkjNBF90XURrcBiQ8k/AMx1XUQrsNFQ9GnXBbQKBw0bR9NdF9Aq9BqI5hStBndzSn4LYIpOotj5kFO0Ok9CMtKWU/IzABOzJiHAmpyi1e470WBHDskPAYzVSUKQ6wWEaq+SaHJVU/Jt3QRkiMeajaOVyXVEA/U6te8aoi/rfDj5zzwNyerVQQuqriUadGiI5vSsAfszSv4CYKZJoti5kFH0Ydc32urcyiD5HRtH5gxkEL3PQp6oKSb/ixsN3LNxZMjyDKt5q53vNG62NJD8iI2j5pyt3mApT/SUUiTfid5Ok4aMVlG0PT6OIplTs5Yp15GsJrwW2k4UOz11RJ90fVMhUqg6xP4ewPHQxiEIIYQQQmCVv2YoMvvF69ayAAAAAElFTkSuQmCC"/>
+					</defs>
+				</svg>
+			</span>
+		</button>
+		<ul class="dropdown-content" role="menu" id="dropdown-menu">
+		<li style="--delay: 1;"><a href="http://lib.jizpi.uz/" target="_blank"><img src="{{asset('assets/icons/f2.png')}}" class="mx-3">{{__('Kutubxona')}}</a></li>
+		<li style="--delay: 1;"><a href="https://unilibrary.uz/" target="_blank"><img src="{{asset('assets/icons/f2.png')}}" class="mx-3">{{__('Unilibrary')}}</a></li>
+		<li style="--delay: 2;"><a href="http://jurnal.jizpi.uz/index.php/JOURNAL" target="_blank"><img src="{{asset('assets/icons/f5.png')}}" class="mx-3">{{__('Onlayn jurnal')}}</a></li>
+		<li style="--delay: 3;"><a href="#" target="_blank"><img src="{{asset('assets/icons/f3.png')}}" class="mx-3">{{__('Interaktiv xizmatlar')}}</a></li>
+		<li style="--delay: 4;"><a href="https://hemis.jizpi.uz/dashboard/login" target="_blank"><img src="{{asset('assets/icons/f6.png')}}" class="mx-3">{{__('Hemis teacher')}}</a></li>
+		<li style="--delay: 5;"><a href="https://student.jizpi.uz/dashboard/login" target="_blank"><img src="{{asset('assets/icons/f1.png')}}" class="mx-3">{{__('Hemis student')}}</a></li>
+		<li style="--delay: 6;"><a href="http://moodle.jizpi.uz/" target="_blank"><img src="{{asset('assets/icons/f4.png')}}" class="mx-3">{{__('Moodle')}}</a></li>
+		</ul>
+	</div>
 	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
 		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 		<span class="visually-hidden">Previous</span>
@@ -64,9 +88,33 @@
 	</div>
 	</div>
 </div>
-@include('layouts.main.index')
+	
+  
+@include('layouts.main.post')
 @include('layouts.main.ad')
 @include('layouts.main.appoint')
 @include('layouts.main.event')
 @include('layouts.main.indicator')
+@include('layouts.no-back-main.facultates')
+@include('layouts.no-back-main.usefull-links')
+@endsection
+
+@section('js')
+<script>
+	const dropdownBtn = document.querySelector(".dropdown-btn");
+	const dropdownCaret = document.querySelector(".arrow");
+	const dropdownContent = document.querySelector(".dropdown-content");
+
+	// add click event to dropdown button
+	dropdownBtn.addEventListener("click", () => {
+	// add rotate to caret element
+	dropdownCaret.classList.toggle("arrow-rotate");
+	// add open styles to menu element
+	dropdownContent.classList.toggle("menu-open");
+	dropdownBtn.setAttribute(
+		"aria-expanded",
+		dropdownBtn.getAttribute("aria-expanded") === "true" ? "false" : "true"
+	);
+	});
+</script>
 @endsection

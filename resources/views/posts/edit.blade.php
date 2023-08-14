@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label for="welcome-image" class="form-control-label">Surat</label>
                             <div class="@error('image')border border-danger rounded-3 @enderror">
-                                <input class="form-control"  type="file" id="welcome-image" name="image">
+                                <input class="form-control"  type="file" id="welcome-image" accept="image/*"  name="image">
                                     @error('image')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -111,6 +111,26 @@
                         </div>
                     </div>
                 </div>
+                <p class="mt-4">Suratni o‘chirish uchun belgilang</p>
+                @foreach ($post->mult_image as $index => $image)
+                <div>
+                    <img class="mb-5" src="{{ asset('storage/' . $image) }}" alt="Image" style="width: 160px">
+                    <input class="m-1" type="checkbox" name="deleted_images[]" value="{{ $index }}">O‘chirish
+                </div>
+                @endforeach
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="welcome-image" class="form-control-label">Surat</label>
+                        <div class="@error('image')border border-danger rounded-3 @enderror">
+                            <input class="form-control" type="file" name="mult_image[]" accept="image/*" multiple>
+                                @error('image')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                        </div>
+                    </div>
+                </div>
+            
             </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn bg-primary text-light text-w btn-md mt-3 mb-5">Saqlash</button>
@@ -119,4 +139,23 @@
         </div>
     </div>
 </div>
+<script>
+    const addImageButton = document.getElementById('add-image-button');
+    const newImagesContainer = document.getElementById('new-images-container');
+
+    let imageCount = 0;
+
+    addImageButton.addEventListener('click', function () {
+        const newInput = document.createElement('input');
+        newInput.type = 'file';
+        newInput.name = 'new_images[]';
+        newInput.accept = 'image/*';
+        newInput.classList.add('new-image-input');
+        
+        newImagesContainer.appendChild(newInput);
+
+        imageCount++;
+    });
+</script>
+
 @endsection

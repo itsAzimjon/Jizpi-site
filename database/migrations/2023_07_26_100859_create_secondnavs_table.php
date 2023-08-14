@@ -15,6 +15,10 @@ class CreateSecondnavsTable extends Migration
     {
         Schema::create('secondnavs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('firstnav_id')->constrained();
+            $table->text('title')->nullable();
+            $table->text('image')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

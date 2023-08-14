@@ -6,18 +6,21 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Expr\AssignOp\Pow;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(16);
         $categories = Category::all();
 
-        return view('layouts.main.index', compact('posts', 'categories'));
-
-
+        return view('posts.index', compact('posts', 'categories'));
     }
 
     public function create()
@@ -29,14 +32,35 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+               
+        $this->validate($request, [
+            'category_id' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:348',
+            'mult_image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:348'
+        ]);
+        
         $path = $request->file('image')->store('post-image');
+        
+        $mults = [];
+
+        if ($request->hasFile('mult_image')) {
+            foreach ($request->file('mult_image') as $image) {
+                $mult = $image->store('post-mult-image');
+                $mults[] = $mult;
+            }
+        }
         
         Post::create([
             'category_id'=> $request->category_id,
             'title' => $request->title,
             'description' => $request->description,
             'image' => $path,
+            'mult_image' => $mults,
         ]);
+
+
 
         $enTranslations = file_get_contents(resource_path('lang/en.json'));
         $enTranslationsArray = json_decode($enTranslations, true);
@@ -59,13 +83,27 @@ class PostController extends Controller
         return view('posts.show', compact('posts', 'post'));
     }
 
-    public function edit(Post $post)
+    public function edit($id)
     {
-        return view('posts.edit')->with(['post' => $post, 'categories' => Category::all()]);
+        $post = Post::findOrFail($id);
+        $categories = Category::all();
+        
+        return view('posts.edit', compact('post', 'categories'));
     }
+    
 
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
+        
+        $post = Post::findOrFail($id);
+        $this->validate($request, [
+            'category_id' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:348',
+            'mult_image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:348'
+        ]);
+        
         if($request->hasFile('image')){
             
             if(isset($post->image)){
@@ -73,12 +111,43 @@ class PostController extends Controller
             }
             $path = $request->file('image')->store('post-image');
         }
+        
+        $post = Post::findOrFail($id);
+
+        // Remove deleted images
+        if ($request->has('deleted_images')) {
+            $deletedImages = $request->input('deleted_images');
+            $imagePaths = $post->mult_image;
+    
+            foreach ($deletedImages as $index) {
+                if (isset($imagePaths[$index])) {
+                    Storage::delete($imagePaths[$index]);
+                    unset($imagePaths[$index]);
+                }
+            }
+    
+            $post->mult_image = array_values($imagePaths); // Reset array keys
+        }
+    
+        // Handle image uploads and storage
+        $imagePaths = $post->mult_image; // Preserve existing images
+
+        if ($request->hasFile('mult_image')) {
+            foreach ($request->file('mult_image') as $image) {
+                $mult = $image->store('post-mult-image');
+                $imagePaths[] = $mult;
+                
+            }
+        }
 
         $post->update([
             'category_id'=> $request->category_id,
             'title' => $request->title,
             'description' => $request->description,
             'image' => $path ?? $post->image,
+            'mult_image' => $imagePaths,
+
+            
         ]);
 
         $enTranslations = file_get_contents(resource_path('lang/en.json'));
@@ -99,6 +168,10 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         Storage::delete($post->image);
+        
+        foreach ($post->mult_image as $image) {
+            Storage::delete($image);
+        }
 
         $post->delete();
 

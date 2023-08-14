@@ -15,6 +15,8 @@ class CreateFirstnavsTable extends Migration
     {
         Schema::create('firstnavs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('nav_id');
             $table->timestamps();
         });
     }

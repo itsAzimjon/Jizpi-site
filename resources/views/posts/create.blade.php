@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label for="welcome-image" class="form-control-label">Surat</label>
                             <div class="@error('image')border border-danger rounded-3 @enderror">
-                                <input required class="form-control"  type="file" id="welcome-image" name="image">
+                                <input required class="form-control"  type="file" accept="image/*"  id="welcome-image" name="image">
                                     @error('image')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -110,6 +110,13 @@
                         </div>
                     </div>
                 </div>
+                <div id="image-forms" class="my-4 form-group"> 
+                    <div class="image-form">
+                        <label class="form-control-label" for="mult_image[]">Qo‘shimcha surat:</label>
+                        <input  class="form-control" type="file" name="mult_image[]" accept="image/*">
+                    </div>
+                </div>
+                <button type="button" id="add-image" class="btn btn-secondary">Rasm qo‘shish</button>
             
                 <div class="d-flex justify-content-end">
                     <button type="button" class="btn bg-gradient-secondary  btn-md mt-4 mb-4 mx-3" data-bs-dismiss="modal">Yopish</button>
@@ -119,4 +126,32 @@
         </div>
     </div>
 </div>
+<script>
+    var maxImages = 6;
+    var imageForms = document.getElementById('image-forms');
+    var addImageButton = document.getElementById('add-image');
+
+    function updateAddButtonState() {
+        if (imageForms.childElementCount >= maxImages) {
+            addImageButton.disabled = true;
+        } else {
+            addImageButton.disabled = false;
+        }
+    }
+
+    addImageButton.addEventListener('click', function () {
+        if (imageForms.childElementCount < maxImages) {
+            var newImageForm = document.createElement('div');
+            newImageForm.className = 'image-form';
+            newImageForm.innerHTML = `
+                <label class="form-control-label" for="mult_image[]">Qo‘shimcha surat:</label>
+                <input  class="form-control" type="file" name="mult_image[]" accept="image/*">
+            `;
+            imageForms.appendChild(newImageForm);
+            updateAddButtonState();
+        }
+    });
+
+    updateAddButtonState();
+</script>
 @endsection

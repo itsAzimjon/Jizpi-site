@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 class AppointController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
+
     public function index()
     {
         Appoint::take();
@@ -22,6 +26,13 @@ class AppointController extends Controller
 
     public function update(Request $request, Appoint $appoint)
     {
+               
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:348'
+        ]);
+        
         if($request->hasFile('image')){
             
             if(isset($appoint->image)){

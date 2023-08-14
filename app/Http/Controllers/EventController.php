@@ -10,14 +10,17 @@ use Illuminate\Support\Facades\Storage;
 class EventController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     public function index()
     {
-        $events = Event::all();
+        $events = Event::paginate(16);
         $categories = Category::all();
 
-        return view('layouts.main.event', compact('events', 'categories'));
-
-
+        return view('events.index', compact('events', 'categories'));
     }
 
     public function create()
@@ -29,6 +32,14 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+               
+        $this->validate($request, [
+            'category_id' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:348'
+        ]);
+        
         $path = $request->file('image')->store('post-image');
         
         Event::create([
@@ -67,6 +78,14 @@ class EventController extends Controller
 
     public function update(Request $request, Event $event)
     {
+                   
+        $this->validate($request, [
+            'category_id' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:348'
+        ]);
+        
         if($request->hasFile('image')){
             
             if(isset($event->image)){

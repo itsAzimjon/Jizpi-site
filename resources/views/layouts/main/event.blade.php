@@ -7,8 +7,8 @@
         </svg>
     </a>
     @endauth
-    <h4 class="text-center mt-5">{{ __('Ommaviy tadbirlar') }}</h4>
-    <div class="row allNews">
+    <h4 class="text-center m-5">{{ __('Ommaviy tadbirlar') }}</h4>
+    <div class="row allNews mt-4">
         @foreach( $events as $event)
         <div class="col-4">
             <div class="contNews">
@@ -23,7 +23,7 @@
         </div>
         @endforeach
     </div>
-    <a href="#" class="newsLink">
+    <a href="/events" class="newsLink">
         <p>{{ __('O‘qishda davom eting')}} 🡢</p>
     </a>
 </div>

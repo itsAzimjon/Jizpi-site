@@ -15,6 +15,10 @@ class CreateThirdnavsTable extends Migration
     {
         Schema::create('thirdnavs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('secondnav_id')->constrained()->onDelete('cascade');
+            $table->text('pdf')->nullable();
+            $table->text('title')->nullable();
+            $table->text('link')->nullable();
             $table->timestamps();
         });
     }
