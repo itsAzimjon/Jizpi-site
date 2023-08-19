@@ -47,13 +47,16 @@
 			</span>
 		</button>
 		<ul class="dropdown-content" role="menu" id="dropdown-menu">
-		<li style="--delay: 1;"><a href="http://lib.jizpi.uz/" target="_blank"><img src="{{asset('assets/icons/f2.png')}}" class="mx-3">{{__('Kutubxona')}}</a></li>
-		<li style="--delay: 1;"><a href="https://unilibrary.uz/" target="_blank"><img src="{{asset('assets/icons/f2.png')}}" class="mx-3">{{__('Unilibrary')}}</a></li>
-		<li style="--delay: 2;"><a href="http://jurnal.jizpi.uz/index.php/JOURNAL" target="_blank"><img src="{{asset('assets/icons/f5.png')}}" class="mx-3">{{__('Onlayn jurnal')}}</a></li>
-		<li style="--delay: 3;"><a href="#" target="_blank"><img src="{{asset('assets/icons/f3.png')}}" class="mx-3">{{__('Interaktiv xizmatlar')}}</a></li>
-		<li style="--delay: 4;"><a href="https://hemis.jizpi.uz/dashboard/login" target="_blank"><img src="{{asset('assets/icons/f6.png')}}" class="mx-3">{{__('Hemis teacher')}}</a></li>
-		<li style="--delay: 5;"><a href="https://student.jizpi.uz/dashboard/login" target="_blank"><img src="{{asset('assets/icons/f1.png')}}" class="mx-3">{{__('Hemis student')}}</a></li>
-		<li style="--delay: 6;"><a href="http://moodle.jizpi.uz/" target="_blank"><img src="{{asset('assets/icons/f4.png')}}" class="mx-3">{{__('Moodle')}}</a></li>
+			<li style="--delay: 1;"><a href="http://lib.jizpi.uz/" target="_blank"><img src="{{asset('assets/icons/f2.png')}}" class="mx-3">{{__('Kutubxona')}}</a></li>
+			<li style="--delay: 1;"><a href="https://unilibrary.uz/" target="_blank"><img src="{{asset('assets/icons/f2.png')}}" class="mx-3">{{__('Unilibrary')}}</a></li>
+			<li style="--delay: 2;"><a href="http://jurnal.jizpi.uz/index.php/JOURNAL" target="_blank"><img src="{{asset('assets/icons/f5.png')}}" class="mx-3">{{__('Onlayn jurnal')}}</a></li>
+			<li style="--delay: 3;"><a href="#" target="_blank"><img src="{{asset('assets/icons/f3.png')}}" class="mx-3">{{__('Interaktiv xizmatlar')}}</a></li>
+			<li style="--delay: 4;"><a href="https://hemis.jizpi.uz/dashboard/login" target="_blank"><img src="{{asset('assets/icons/f6.png')}}" class="mx-3">{{__('Hemis teacher')}}</a></li>
+			<li style="--delay: 5;"><a href="https://student.jizpi.uz/dashboard/login" target="_blank"><img src="{{asset('assets/icons/f1.png')}}" class="mx-3">{{__('Hemis student')}}</a></li>
+			<li style="--delay: 6;"><a href="http://moodle.jizpi.uz/" target="_blank"><img src="{{asset('assets/icons/f4.png')}}" class="mx-3">{{__('Moodle')}}</a></li>
+			<li style="--delay: 9;" class="nav-item ">
+				<a class="nav-link nav-text text-light  recip" href="#">{{__('Rektorga qabul')}}</a>
+			</li> 
 		</ul>
 	</div>
 	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">

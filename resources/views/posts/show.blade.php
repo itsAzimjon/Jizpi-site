@@ -11,11 +11,13 @@
             <h4 class="my-4">{{ __($post->title) }}</h4>
             <p>{!!nl2br (__($post->description)) !!}</p>
             <div class="row">
-                @foreach ($post->mult_image as $key => $mult)
-                    <div class="{{$key == 0 ? 'col-12' : '' }} col-6 mb-0 mt-1 px-1">
-                        <img src="{{ asset('Storage/'. $mult)}}" class="img-thumbnail mult-image m-0"  style="{{$key == 0 ? 'height:330px;' : ''}}">
-                    </div>
-                @endforeach
+                @if($post->mult_image)
+                    @foreach ($post->mult_image as $key => $mult)
+                        <div class="{{$key == 0 ? 'col-12' : '' }} col-6 mb-0 mt-1 px-1">
+                            <img src="{{ asset('Storage/'. $mult)}}" class="img-thumbnail mult-image m-0"  style="{{$key == 0 ? 'height:330px;' : ''}}">
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
         <div class="col right col-lg-4 col-xl-4 col-xxl-4">

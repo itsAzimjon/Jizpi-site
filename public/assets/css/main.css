@@ -27,10 +27,13 @@ p,h1,h2,h3,h4,h5,h6{
 }
 
 .recip{
-    margin-left: 24px;
     background-color: #1566B7;
-    border-radius: 10px;
-    padding: 10px 16px !important;
+    border-radius: 8px;
+    padding: 14px 24px !important;
+}
+
+.recip:hover{
+    color: #000 !important;
 }
 
 .dropdown-item{
@@ -57,6 +60,19 @@ p,h1,h2,h3,h4,h5,h6{
 .nav-1{
     height: 50px;
 }
+
+@media (min-width: 992px){
+    .dropdown:not(.dropdown-hover) .dropdown-menu {
+        margin-top: 0px!important;
+    }
+}
+.navbar-nav .nav-item ul {
+    padding-top: 15px !important;
+}
+
+.dropdown .dropdown-menu:before {
+    display: none;
+}
 /* navbar-end */
 
 .crsl{
@@ -73,6 +89,39 @@ p,h1,h2,h3,h4,h5,h6{
     bottom: auto;
     text-align: start;
 }
+
+@media (min-width: 768px) and (max-width: 1399.98px) { 
+    .crsl{
+        /* *** */
+        height: 510px;
+        object-fit: cover;
+    }
+
+    .carousel-caption {
+        z-index: 3;
+        /* *** */
+        top: 290px;
+        position: absolute;
+        bottom: auto;
+        text-align: start;
+    }
+
+    .carousel-caption h2 {
+        font-size: 32px !important;   
+    }
+
+    .carousel-caption p {
+ 
+        font-size: 16px !important;
+        margin: 10px 0 30px 0;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 138.5%;
+        letter-spacing: 0.36px
+    }
+
+}
+
 
 .carousel-caption h2 {
     color: #fff;
@@ -403,7 +452,6 @@ a{
 
 .lp{
     margin-top: -38px;
-
     font-style: normal;
     font-weight: 500;
     font-size: 14px;

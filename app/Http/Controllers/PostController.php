@@ -169,12 +169,13 @@ class PostController extends Controller
     {
         Storage::delete($post->image);
         
-        foreach ($post->mult_image as $image) {
-            Storage::delete($image);
+        if ($post->mult_image) {
+            foreach ($post->mult_image as $image) {
+                Storage::delete($image);
+            }
         }
 
         $post->delete();
-
         return redirect()->route('home');
     }
 }
