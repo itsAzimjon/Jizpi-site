@@ -15,6 +15,7 @@ use App\Http\Controllers\ThirdnavController;
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
 Route::get('posts', [PostController::class, 'index'])->name('posts');
 Route::get('events', [EventController::class, 'index'])->name('events');
+Route::get('ads', [AdController::class, 'index'])->name('ads');
 Route::get('login', [AuthController::class, 'index'])->name('login');
 
 Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');

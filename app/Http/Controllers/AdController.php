@@ -17,7 +17,7 @@ class AdController extends Controller
     {
         $ads = Ad::all();
 
-        return view('layouts.main.ads', compact('ads'));
+        return view('ads.index', compact('ads'));
     }
 
     public function show(Ad $ad)

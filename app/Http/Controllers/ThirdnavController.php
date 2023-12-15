@@ -27,9 +27,7 @@ class ThirdnavController extends Controller
    
         $this->validate($request, [
             'secondnav_id'  => 'required',
-            'title'  => 'required',
-            'link'  => 'required',
-            'pdf' => 'file|mimes:pdf|max:5048', // Replace 2048 with your desired max file size in KB
+            'pdf' => 'file|mimes:pdf|max:5048', // Replace 5048 with your desired max file size in KB
         ]);
 
         $path = null;
@@ -72,10 +70,7 @@ class ThirdnavController extends Controller
     {
         
         $this->validate($request, [
-            'secondnav_id'  => 'required',
-            'title'  => 'required',
-            'link'  => 'required',
-            'pdf' => 'file|mimes:pdf|max:5048', // Replace 2048 with your desired max file size in KB
+            'pdf' => 'file|mimes:pdf|max:5048', // Replace 5048 with your desired max file size in KB
         ]);
         
         if($request->hasFile('pdf')){

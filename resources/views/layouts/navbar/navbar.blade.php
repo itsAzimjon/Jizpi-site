@@ -44,11 +44,14 @@
 <nav class="navbar navbar-expand-lg" style="box-shadow: none">
     <div class="container py-1">
         <a class="navbar-brand" href="/"><img class="nav-img" src="/assets/img/jizpiQora.png"></a>
-         <div class="nav-main">
+        <div class="nav-main">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">=</span>
+            </button> 
             <div class="collapse navbar-collapse" id="main_nav">
                 <ul class="navbar-nav ">
                     <li class="nav-item dropdown">
-                    <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('Yangiliklar')}}</a>
+                    <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('YANGILIKLAR')}}</a>
                         <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="posts">{{__('Yangiliklar')}}</a></li>
                                 <li><a class="dropdown-item" href="events">{{__('Ommaviy tadbirlar')}}</a></li>
@@ -56,7 +59,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('Institut')}}</a>
+                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('INSTITUT')}}</a>
                         <ul class="dropdown-menu">
                             @foreach($firstnavs->where('nav_id', 1) as $firstnav)
                                 <li><a class="dropdown-item" href="{{ route('firstnavs.show', ['firstnav' => $firstnav->id])}}">{{$firstnav->name}}</a></li>
@@ -64,7 +67,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('Tuzilma')}}</a>
+                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('TUZILMA')}}</a>
                         <ul class="dropdown-menu">
                             @foreach($firstnavs->where('nav_id', 2) as $firstnav)
                                 <li><a class="dropdown-item" href="{{ route('firstnavs.show', ['firstnav' => $firstnav->id])}}">{{$firstnav->name}}</a></li>
@@ -72,7 +75,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('Faoliyat')}}</a>
+                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('FAOLIYAT')}}</a>
                         <ul class="dropdown-menu">
                             @foreach($firstnavs->where('nav_id', 3) as $firstnav)
                                 <li><a class="dropdown-item" href="{{ route('firstnavs.show', ['firstnav' => $firstnav->id])}}">{{$firstnav->name}}</a></li>
@@ -80,7 +83,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('Qabul-2023')}}</a>
+                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('QABUL')}}-2023</a>
                         <ul class="dropdown-menu">
                             @foreach($firstnavs->where('nav_id', 4) as $firstnav)
                                 <li><a class="dropdown-item" href="{{ route('firstnavs.show', ['firstnav' => $firstnav->id])}}">{{$firstnav->name}}</a></li>
@@ -88,7 +91,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('Talabalar')}}</a>
+                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('TALABALAR')}}</a>
                         <ul class="dropdown-menu">
                             @foreach($firstnavs->where('nav_id', 5) as $firstnav)
                                 <li><a class="dropdown-item" href="{{ route('firstnavs.show', ['firstnav' => $firstnav->id])}}">{{$firstnav->name}}</a></li>
@@ -96,13 +99,13 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('Aloqa')}}</a>
+                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('ALOQA')}}</a>
                         <ul class="dropdown-menu">
 
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('Interaktiv xizmatlar')}}</a>
+                        <a class="nav-link nav-text text-black  data-toggle" href="#" data-bs-toggle="dropdown">{{__('INTERAKTIV XIZMATLAR')}}</a>
                     </li>
                     {{-- <li class="nav-item ">
                         <a class="nav-link nav-text text-light  recip" href="#">{{__('Rektorga qabul')}}</a>

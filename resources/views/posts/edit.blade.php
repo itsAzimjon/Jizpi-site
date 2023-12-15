@@ -111,6 +111,7 @@
                         </div>
                     </div>
                 </div>
+                @if($post->mult_image)
                 <p class="mt-4">Suratni o‘chirish uchun belgilang</p>
                 @foreach ($post->mult_image as $index => $image)
                 <div>
@@ -118,7 +119,7 @@
                     <input class="m-1" type="checkbox" name="deleted_images[]" value="{{ $index }}">O‘chirish
                 </div>
                 @endforeach
-                
+                @endif
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="welcome-image" class="form-control-label">Surat</label>

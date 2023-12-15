@@ -1,5 +1,5 @@
 <div class="container">
-    <h4 class="facTitle my-5">{{__('Fakuletlar')}}</h4>
+    <h4 class="facTitle my-5">{{__('Fakultetlar')}}</h4>
     <div class="row facMain mt-0">
         <ul class="col-12 owl-carousel">         
             <li class="p-2 facLi">

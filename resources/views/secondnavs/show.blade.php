@@ -40,12 +40,20 @@
                     </div>
                 @endauth
             </div>
+
+            <div id="loadingSpinner" style="display: none;">
+                <!-- You can use an actual spinner animation here -->
+                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+            </div>
+            
             @if($thirdnav->pdf == null)
             @else
                 <div id="pdfViewerContainer" class="mt-4">
                     <canvas id="pdfViewer" class="col-12"></canvas>
                 </div>
-                <div class="mt-5">
+                <div class="mt-5" id="pdf-control">
                     <button id="prevButton"><</button>
                     <span id="pageInfo"></span>
                     <button id="nextButton">></button>
@@ -55,43 +63,39 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script>
-        // PDF URL to load - Replace this with the URL of your PDF file
         const pdfUrl = "{{ asset('Storage/'. $thirdnav->pdf )}}";
-
-        // PDF Viewer container and canvas element
         const container = document.getElementById('pdfViewerContainer');
         const canvas = document.getElementById('pdfViewer');
         const canvasContext = canvas.getContext('2d');
-
-        // PDF variables
+        const loadingSpinner = document.getElementById('loadingSpinner'); // Get the spinner element
+    
         let pdfDocument = null;
         let totalPages = 0;
         let currentPage = 1;
-
-        // Asynchronous function to load and display the PDF
+    
         async function loadAndRenderPDF() {
-            // Load PDF document
+            loadingSpinner.style.display = 'block'; // Show the spinner while loading
             const loadingTask = pdfjsLib.getDocument(pdfUrl);
             pdfDocument = await loadingTask.promise;
-
-            // Set the total number of pages in the document
             totalPages = pdfDocument.numPages;
-
-            // Display the first page initially
             await renderPage(currentPage);
+            loadingSpinner.style.display = 'none'; // Hide the spinner once loaded
+            if(totalPages == 1){
+                document.getElementById('pdf-control').style.display = 'none';
 
-            // Update page info
-            document.getElementById('pageInfo').textContent = `{{__('Sahifa ')}} ${currentPage} / ${totalPages}`;
+            }
+            else{
 
-            // Handle Previous button click
+                document.getElementById('pageInfo').textContent = `{{__('Sahifa ')}} ${currentPage} / ${totalPages}`;
+            }
+    
             document.getElementById('prevButton').addEventListener('click', async () => {
                 if (currentPage > 1) {
                     currentPage--;
                     await renderPage(currentPage);
                 }
             });
-
-            // Handle Next button click
+    
             document.getElementById('nextButton').addEventListener('click', async () => {
                 if (currentPage < totalPages) {
                     currentPage++;
@@ -99,27 +103,28 @@
                 }
             });
         }
-
-        // Asynchronous function to render a specific page
+    
         async function renderPage(pageNumber) {
+            loadingSpinner.style.display = 'block'; // Show the spinner while rendering
             const page = await pdfDocument.getPage(pageNumber);
-            const viewport = page.getViewport({ scale: 1.5 });
-
+            const scale = 3;
+            const viewport = page.getViewport({ scale });
+    
             canvas.width = viewport.width;
             canvas.height = viewport.height;
-
+    
             const renderContext = {
                 canvasContext,
                 viewport,
             };
             await page.render(renderContext);
-
-            // Update page info
+    
+            loadingSpinner.style.display = 'none'; // Hide the spinner once rendered
             document.getElementById('pageInfo').textContent = `{{__('Sahifa ')}} ${currentPage} / ${totalPages}`;
         }
-
-        // Load and display the PDF when the page is loaded
+    
         window.onload = loadAndRenderPDF;
     </script>
+    
 </div>
 @endsection

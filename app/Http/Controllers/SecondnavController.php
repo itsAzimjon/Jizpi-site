@@ -79,9 +79,7 @@ class SecondnavController extends Controller
     {
                    
         $this->validate($request, [
-            'firstnav_id' => 'required',
             'title' => 'required',
-            'description' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:348'
         ]);
         

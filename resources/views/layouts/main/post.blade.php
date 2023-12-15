@@ -31,7 +31,7 @@
                             <a href="{{ route('posts.show', ['post' => $post->id])}}">
                                 <div class="contNews">
                                     <img src="{{ asset('storage/'. $post->image)}}" width="100%">
-                                    <p class="sp">{{ $post->title }}</p>
+                                    <p class="sp">{{ __($post->title) }}</p>
                                     <p class="tp">{{ \Carbon\Carbon::parse($post->created_at)->format('F j, Y')}}</p>
                                 </div>
                             </a>

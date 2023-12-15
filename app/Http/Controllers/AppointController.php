@@ -19,6 +19,7 @@ class AppointController extends Controller
 
         return view('components.create-appoint');
     }
+    
     public function edit(Appoint $appoint)
     {
         return view('components.appoint-edit')->with(['appoint' => $appoint]);
